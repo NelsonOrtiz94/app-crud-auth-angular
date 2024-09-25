@@ -19,6 +19,7 @@
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
+    "dotenv": "^16.4.5",
     "ng-task-18": "file:",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
