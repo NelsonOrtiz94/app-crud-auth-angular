@@ -1,12 +1,11 @@
 export const environment = {
-    production: false,
-    firebase: {
-      apiKey: process.env['FIREBASE_API_KEY'],
-      authDomain: process.env['FIREBASE_AUTH_DOMAIN'],
-      projectId: process.env['FIREBASE_PROJECT_ID'],
-      storageBucket: process.env['FIREBASE_STORAGE_BUCKET'],
-      messagingSenderId: process.env['FIREBASE_MESSAGING_SENDER_ID'],
-      appId: process.env['FIREBASE_APP_ID'],
-    },
-  };
-  
+  production: false,
+  firebase: {
+    apiKey: 'TU_API_KEY',
+    authDomain: 'TU_AUTH_DOMAIN',
+    projectId: 'TU_PROJECT_ID',
+    storageBucket: 'TU_STORAGE_BUCKET',
+    messagingSenderId: 'TU_MESSAGING_SENDER_ID',
+    appId: 'TU_APP_ID',
+  },
+};

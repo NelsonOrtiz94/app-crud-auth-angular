@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './sign-up.component.html',
   styles: ``
 })
-export class SignUpComponent {
+export default class SignUpComponent {
 
 }
