@@ -6,6 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { hasEmailError, isRequired } from '../../validator';
+import { AuthService } from '../../data-access/auth.service';
+import { toast } from 'ngx-sonner';
 
 interface FormSignUp {
   email: FormControl<string | null>;
@@ -20,9 +22,10 @@ interface FormSignUp {
 })
 export default class SignUpComponent {
   private _formBuilder = inject(FormBuilder);
+  private _authService = inject(AuthService);
 
-  isRequired(field: 'email' | 'password'){
-    return isRequired(field, this.form)
+  isRequired(field: 'email' | 'password') {
+    return isRequired(field, this.form);
   }
 
   hasEmailError() {
@@ -37,13 +40,19 @@ export default class SignUpComponent {
     password: this._formBuilder.control('', Validators.required),
   });
 
-  submit(){
-    if(this.form.invalid) return; 
+  async submit() {
+    if (this.form.invalid) return;
 
-    const { email, password } = this.form.value;
+    try {
+      const { email, password } = this.form.value;
 
-    if( !email || !password) return;
-    console.log({email,password});
-    
+      if (!email || !password) return;
+
+      await this._authService.signUp({ email, password });
+
+      toast.success('Usuario creado correctamente');
+    } catch (error) {
+      toast.error('Error al crear el usuario');
+    }
   }
 }
