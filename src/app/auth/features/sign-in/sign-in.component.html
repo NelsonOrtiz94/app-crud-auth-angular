@@ -14,7 +14,7 @@
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"> 
                         Crea una cuenta
                     </h1>
-                    <app-google-button (onClick)="submitWithGoogle" />
+                    <app-google-button (onClick)="submitWithGoogle()" />
                 </div>
                 <form class="space-y-4 md:space-y-6" [formGroup]="form" (ngSubmit)="submit()">
                     <div>
