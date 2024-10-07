@@ -4,6 +4,7 @@ import { AuthService } from '../../data-access/auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { toast } from 'ngx-sonner';
 import { isRequired, hasEmailError } from '../../validator';
+import { GoogleButtonComponent } from '../../ui/google-button/google-button.component';
 
 export interface FormSignIn {
   email: FormControl<string | null>;
@@ -13,7 +14,7 @@ export interface FormSignIn {
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, GoogleButtonComponent],
   templateUrl: './sign-in.component.html',
   styles: ``
 })
@@ -52,6 +53,16 @@ export default class SignInComponent {
       this._router.navigateByUrl('/Tasks');
     } catch (error) {
       toast.error('Error al crear el usuario');
+    }
+  }
+
+  async submitWithGoogle(){
+    try {
+      await this._authService.signInWithGoogle();
+      toast.success('Inicio de sesión con Google exitoso');
+      this._router.navigateByUrl('/Tasks');
+    } catch (error) {
+      toast.error('Error al iniciar sesión con Google');
     }
   }
 }
