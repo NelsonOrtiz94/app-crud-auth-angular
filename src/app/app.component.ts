@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { NgxSonnerToaster } from 'ngx-sonner';
+import { AuthStateService } from './shared/data-access/auth-state.service';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,12 @@ import { NgxSonnerToaster } from 'ngx-sonner';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'ng-task-18';
+
+  private _authState = inject(AuthStateService); 
+  private router = inject(Router);
+
+  async logOut(){
+    await this._authState.logOut(); 
+    this.router.navigateByUrl('/auth/sign-in');
+  }
 }
