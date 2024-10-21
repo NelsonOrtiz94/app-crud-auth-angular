@@ -1,5 +1,7 @@
 # Proyecto de Autenticación con Angular y Firebase
 
+Link al proyecto: [Autenticación con Angular y Firebase](https://angular-auth-firebase.netlify.app/)
+
 Este proyecto demuestra cómo implementar la autenticación de usuarios utilizando Angular y Firebase, aprovechando el servicio de autenticación con Google que ofrece Firebase.
 
 ## Tecnologías Utilizadas
