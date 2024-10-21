@@ -64,7 +64,7 @@ export default class SignInComponent {
   async submitWithGoogle() {
     try {
       await this._authService.signInWithGoogle();
-      toast.success('Bienvenido denuevo');
+      toast.success('Bienvenido de nuevo');
       this._router.navigateByUrl('/tasks');
     } catch (error) {
       toast.error('Ocurrio un error');
